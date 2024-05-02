@@ -37,46 +37,20 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'HIDE_ELEMENTOR_ADS_VERSION', '1.0.0' );
 
-/**
- * The code that runs during plugin activation.
- * This action is documented in includes/class-hide-elementor-ads-activator.php
- */
-function activate_hide_elementor_ads() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-hide-elementor-ads-activator.php';
-	Hide_Elementor_Ads_Activator::activate();
-}
 
-/**
- * The code that runs during plugin deactivation.
- * This action is documented in includes/class-hide-elementor-ads-deactivator.php
- */
-function deactivate_hide_elementor_ads() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-hide-elementor-ads-deactivator.php';
-	Hide_Elementor_Ads_Deactivator::deactivate();
-}
+function elementor_nag_frontend() {
+        wp_register_style(
+            'elementor-nag-removal','/css/elementor-nag.css', 'array()', '1.0.41', 'all'); 
+        // Enqueue the registered style and script files
+        wp_enqueue_style('elementor-nag-removal');
+    }
 
-register_activation_hook( __FILE__, 'activate_hide_elementor_ads' );
-register_deactivation_hook( __FILE__, 'deactivate_hide_elementor_ads' );
+add_action('elementor/editor/before_enqueue_styles', 'elementor_nag_frontend');
 
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-require plugin_dir_path( __FILE__ ) . 'includes/class-hide-elementor-ads.php';
-
-/**
- * Begins execution of the plugin.
- *
- * Since everything within the plugin is registered via hooks,
- * then kicking off the plugin from this point in the file does
- * not affect the page life cycle.
- *
- * @since    1.0.0
- */
-function run_hide_elementor_ads() {
-
-	$plugin = new Hide_Elementor_Ads();
-	$plugin->run();
-
-}
-run_hide_elementor_ads();
+function elementor_nag_admin() {
+        wp_register_style(
+            'elementor-nag-removal','/css/hide-nag-backend.css', 'array()', '1.0.0', 'all'); 
+       // Enqueue the registered style and script files
+        wp_enqueue_style('elementor-nag-removal');
+    }
+add_action('admin_head', 'elementor_nag_admin');
