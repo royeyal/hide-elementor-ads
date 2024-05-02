@@ -16,7 +16,7 @@
  * Plugin Name:       Hide Elementor Ads
  * Plugin URI:        https://github.com/royeyal/hide-elementor-ads
  * Description:       Hide Elementor’s Image optimization & AI ads. CSS code by foxscribbler.com
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Roy Eyal
  * Author URI:        https://royeyal.studio/
  * License:           GPL-3.0+
@@ -37,7 +37,7 @@ function hide_elementor_ads_enqueue_styles() {
 
 // Backend styles
 function hide_elementor_ads_enqueue_admin_styles() {
-    wp_register_style('hea_admin_css', plugins_url('/css/hide-nag-backend.css', __FILE__), false, '1.0.0');
+    wp_register_style('hea_admin_css', plugins_url('/css/hide-nag-backend.css', __FILE__), false, '1.0.1');
     wp_enqueue_style('hea_admin_css');
 }
 add_action('admin_enqueue_scripts', 'hide_elementor_ads_enqueue_admin_styles');
