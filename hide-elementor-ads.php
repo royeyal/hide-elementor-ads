@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 function hide_elementor_ads_enqueue_styles() {
     wp_enqueue_style('hide-elementor-ads-enqueue-styles', plugin_dir_url(__FILE__) . 'css/elementor-nag.css');
 }
-add_action('wp_enqueue_scripts', 'hide_elementor_ads_enqueue_styles');
+//add_action('wp_enqueue_scripts', 'hide_elementor_ads_enqueue_styles');
 
 // Backend styles
 function hide_elementor_ads_enqueue_admin_styles() {
