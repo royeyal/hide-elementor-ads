@@ -36,17 +36,8 @@ function hide_elementor_ads_enqueue_styles() {
 add_action('wp_enqueue_scripts', 'hide_elementor_ads_enqueue_styles');
 
 // Backend styles
-function load_custom_admin_style() {
-    wp_register_style('custom_admin_css', plugins_url('/css/admin-style.css', __FILE__), false, '1.0.0');
-    wp_enqueue_style('custom_admin_css');
+function hide_elementor_ads_enqueue_admin_styles() {
+    wp_register_style('hea_admin_css', plugins_url('/css/hide-nag-backend.css', __FILE__), false, '1.0.0');
+    wp_enqueue_style('hea_admin_css');
 }
-add_action('admin_enqueue_scripts', 'load_custom_admin_style');
-
-
-function hide_elementor_ads_admin() {
-        wp_register_style(
-            'elementor-nag-removal','/css/hide-nag-backend.css', 'array()', '1.0.0', 'all'); 
-       // Enqueue the registered style and script files
-        wp_enqueue_style('elementor-nag-removal');
-    }
-add_action('admin_head', 'hide_elementor_ads_admin');
+add_action('admin_enqueue_scripts', 'hide_elementor_ads_enqueue_admin_styles');
