@@ -29,27 +29,24 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Currently plugin version.
- * Start at version 1.0.0 and use SemVer - https://semver.org
- * Rename this for your plugin and update it as you release new versions.
- */
-define( 'HIDE_ELEMENTOR_ADS_VERSION', '1.0.0' );
+// Frontend styles
+function hide_elementor_ads_enqueue_styles() {
+    wp_enqueue_style('hide-elementor-ads-enqueue-styles', plugin_dir_url(__FILE__) . 'css/elementor-nag.css');
+}
+add_action('wp_enqueue_scripts', 'hide_elementor_ads_enqueue_styles');
+
+// Backend styles
+function load_custom_admin_style() {
+    wp_register_style('custom_admin_css', plugins_url('/css/admin-style.css', __FILE__), false, '1.0.0');
+    wp_enqueue_style('custom_admin_css');
+}
+add_action('admin_enqueue_scripts', 'load_custom_admin_style');
 
 
-function elementor_nag_frontend() {
-        wp_register_style(
-            'elementor-nag-removal','/css/elementor-nag.css', 'array()', '1.0.41', 'all'); 
-        // Enqueue the registered style and script files
-        wp_enqueue_style('elementor-nag-removal');
-    }
-
-add_action('elementor/editor/before_enqueue_styles', 'elementor_nag_frontend');
-
-function elementor_nag_admin() {
+function hide_elementor_ads_admin() {
         wp_register_style(
             'elementor-nag-removal','/css/hide-nag-backend.css', 'array()', '1.0.0', 'all'); 
        // Enqueue the registered style and script files
         wp_enqueue_style('elementor-nag-removal');
     }
-add_action('admin_head', 'elementor_nag_admin');
+add_action('admin_head', 'hide_elementor_ads_admin');
