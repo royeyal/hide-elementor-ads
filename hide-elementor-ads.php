@@ -22,7 +22,6 @@
  * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.txt
  * Text Domain:       hide-elementor-ads
- * Domain Path:       /languages
  */
 
 // If this file is called directly, abort.
