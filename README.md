@@ -1,6 +1,7 @@
 # hide-elementor-ads
 
-Hide Elementor’s Image optimization &amp; AI ads. Inital code by [foxscribbler.com](https://foxscribbler.com/)
+Hide Elementor’s Image optimization &amp; AI ads.
+Inital code by [foxscribbler.com](https://foxscribbler.com/)
 
 ## How
 

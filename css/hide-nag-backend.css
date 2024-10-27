@@ -1,4 +1,5 @@
 .elementor-control-media__promotions,
-.e-ai-button {
+.e-ai-button,
+#e-announcements-root {
     display: none !important
 }
